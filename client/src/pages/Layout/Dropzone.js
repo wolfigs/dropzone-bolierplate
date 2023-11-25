@@ -11,7 +11,6 @@ const DropzoneComponent = () => {
 
     const [image, setImage] = useState([]);
 
-
     const onDrop = useCallback((acceptedFiles) => {
 
         // create a new FormData object
@@ -53,14 +52,15 @@ const DropzoneComponent = () => {
                 <p>Drag and drop some files here, or click to select files</p>
 
                 <div className={"img-container"}>
-                {image.length !== 0 ?
-                    image.map(((singleImage, index) => (
-                            <img key={index} src={`${API_URL}uploads/${singleImage}`} alt={"upload"}
-                                 style={{width: "200px"}}/>
-                        )
-                    ))
-                    : ""
-                }
+                    {
+                        image.length !== 0 ?
+                            image.map(((singleImage, index) => (
+                                    <img key={index} src={`${API_URL}uploads/${singleImage}`} alt={"upload"}
+                                         style={{width: "200px"}}/>
+                                )
+                            ))
+                            : ""
+                    }
                 </div>
 
             </div>
